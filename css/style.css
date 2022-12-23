@@ -1,0 +1,212 @@
+/*
+  La pagina principale è stata divisa in 4 sezioni principali, ed ogni sezione è stata delimitata
+  usando la funzione polygon che permette di generare elementi svg all'interno della pagina html,
+  usati per creare l'effetto tridimensionale.
+*/
+
+@font-face {
+    font-family: 'tr2n';
+    src: url('../fonts/Tr2n.ttf');
+}
+
+body {
+  background-image: url('../images/bg.jpg');
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.body-opacity {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  position: fixed;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.top-bar {
+  background-image: url('../images/wood.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 15%;
+  -webkit-clip-path: polygon(5% 0%, 10% 100%, 90% 100%, 95% 0%);
+  clip-path: polygon(8% 0%, 10% 100%, 90% 100%, 92% 0%);
+  box-shadow: inset 0px -20px 40px rgba(0,0,0,0.6);
+}
+
+.game-box {
+  background-color: black;
+  width: 100%;
+  height: 60%;
+  -webkit-clip-path: polygon(10% 0%, 10% 100%, 90% 100%, 90% 0%);
+  clip-path: polygon(10% 0%, 10% 100%, 90% 100%, 90% 0%);
+  text-align: center;
+  box-shadow: inset 20px 10px 100px rgba(255,255,255,0.5);
+}
+
+.command-bar {
+  background-image: url('../images/wood.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 20%;
+  -webkit-clip-path: polygon(10% 0%, 5% 100%, 95% 100%, 90% 0%);
+  clip-path: polygon(10% 0%, 5% 100%, 95% 100%, 90% 0%);
+  box-shadow: inset 0px 20px 30px rgba(0,0,0,0.5);
+}
+
+.bottom-bar {
+  background-image: url('../images/wood.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 5%;
+  -webkit-clip-path: polygon(5% 0%, 5% 100%, 95% 100%, 95% 0%);
+  clip-path: polygon(5% 0%, 5% 100%, 95% 100%, 95% 0%);
+  box-shadow: inset 0px -25px 30px rgba(0,0,0,0.7);
+}
+
+.logo {
+  font-family: "tr2n";
+  color: #000;
+  font-size: 90px;
+  text-align: center;
+  -webkit-transition: text-shadow 0.2s linear;
+  -moz-transition: text-shadow 0.2s linear;
+  -ms-transition: text-shadow 0.2s linear;
+  -o-transition: text-shadow 0.2s linear;
+  transition: text-shadow 0.2s linear;
+}
+
+.shadow {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fdff00, 0 0 30px #fdff00, 0 0 40px #fdff00, 0 0 50px #fdff00, 0 0 75px #fdff00;
+}
+
+.coin {
+  display: inline-block;
+  width: 17%;
+  height: 73%;
+  background-image: url('../images/coin.png');
+  background-repeat: repeat-x;
+  background-size: 50%;
+  margin-top: 15px;
+  -webkit-clip-path: polygon(59% 20%, 43% 100%, 91% 100%, 100% 20%);
+  clip-path: polygon(59% 0%, 43% 100%, 93% 100%, 100% 0%);
+}
+
+.coin:hover {
+  background-image: url('../images/coin-hover.png');
+  cursor: pointer;
+}
+
+.createdby {
+  display: inline-block;
+  width: 370px;
+  height: 50px;
+  font-size: 20px;
+  text-shadow: 0 1px 0 brown;
+  opacity: 0.7;
+}
+
+.button-left {
+  position: fixed;
+  width: 150px;
+  height: 75px;
+  bottom: 60px;
+  right: 500px;
+  background-color: red;
+  z-index: 9000;
+  font-size: 30px;
+  text-align: center;
+  line-height: 3;
+  border-bottom: 8px solid black;
+  -webkit-clip-path: polygon(15% 20%, 8% 100%, 56% 100%, 60% 20%);
+  clip-path: polygon(10% 20%, 10% 100%, 62% 100%, 60% 20%);
+}
+
+.button-right {
+  position: fixed;
+  width: 150px;
+  height: 75px;
+  bottom: 60px;
+  right: 400px;
+  background-color: red;
+  z-index: 9000;
+  font-size: 30px;
+  text-align: center;
+  line-height: 3;
+  border-bottom: 8px solid black;
+  -webkit-clip-path: polygon(15% 20%, 8% 100%, 56% 100%, 60% 20%);
+  clip-path: polygon(8% 20%, 10% 100%, 64% 100%, 58% 20%);
+}
+
+.button-top {
+  position: fixed;
+  width: 150px;
+  height: 75px;
+  bottom: 60px;
+  right: 300px;
+  background-color: red;
+  z-index: 9000;
+  font-size: 35px;
+  text-align: center;
+  line-height: 3;
+  border-bottom: 8px solid black;
+  -webkit-clip-path: polygon(15% 20%, 8% 100%, 56% 100%, 60% 20%);
+  clip-path: polygon(6% 20%, 12% 100%, 66% 100%, 57% 20%);
+}
+
+.button-bottom {
+  position: fixed;
+  width: 150px;
+  height: 75px;
+  bottom: 60px;
+  right: 200px;
+  background-color: red;
+  z-index: 9000;
+  font-size: 35px;
+  text-align: center;
+  line-height: 2.5;
+  border-bottom: 8px solid black;
+  -webkit-clip-path: polygon(15% 20%, 8% 100%, 56% 100%, 60% 20%);
+  clip-path: polygon(4% 20%, 14% 100%, 68% 100%, 57% 20%);
+}
+
+.pressed {
+  border-bottom: 0;
+  cursor: pointer;
+}
+
+.pad {
+  position: fixed;
+  width: 100px;
+  height: 190px;
+  bottom: 60px;
+  right: 110px;
+  background-image: url('../images/pad.png');
+  background-size: cover;
+  z-index: 9999;
+}
+
+.game-canvas {
+  display: inline-block;
+  background-color: white;
+  width: 50%;
+  height: 80%;
+  margin-top: 3%;
+}
+
+.invisible {
+  display: none;
+}
+
+.status {
+  position: absolute;
+  left: 38%;
+  top: 16%;
+  color: white;
+  font-size: 20px;
+}

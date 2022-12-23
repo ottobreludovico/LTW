@@ -1,0 +1,144 @@
+<!--
+  Oltre agli script per il gioco, sono state usate due librerie js: jquery (usata anche all'interno
+  degli script del gioco) e sweetalert2 (per stilizzare il popup che chiede il nome del giocatore)
+-->
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="body-opacity"></div>
+    <div class="container">
+      <div class="top-bar">
+        <div class="logo">
+          Arcade Games
+        </div>
+      </div>
+      <div class="game-box">
+        <div id="status" class="status">
+
+        </div>
+        <canvas id="snake" class="game-canvas invisible" width="640" height="480"></canvas>
+      </div>
+      <div class="command-bar">
+        <div class="coin">
+
+        </div>
+        <div class="createdby">
+          <i>&nbsp;&nbsp;&nbsp;Created by Francesco, Ludovico e Simone</i>
+        </div>
+        <div class="button-left">
+          <&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="button-right">
+          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="button-top">
+          ^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="button-bottom">
+          v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </div>
+      <div class="bottom-bar">
+
+      </div>
+      <div class="pad">
+
+      </div>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/sweetalert2.js"></script>
+    <script>
+      var canvas = document.getElementById("snake");
+      var context = canvas.getContext("2d");
+    </script>
+    <script src="js/game/gioco.js"></script>
+    <script src="js/game/snake.js"></script>
+    <script src="js/game/cibo.js"></script>
+    <script src="js/game/helpers.js"></script>
+    <script>
+      $(document).ready(function () {
+        swal({
+          title: 'Inserisci il tuo nome',
+          input: 'text',
+          showCancelButton: false,
+          confirmButtonText: 'Gioca',
+          allowOutsideClick: false
+        }).then((result) => {
+            localStorage.player = result.value;
+        })
+      });
+    </script>
+    <script>
+      $(".coin").click(function() {
+        $("#snake").removeClass("invisible");
+        startSnake();
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+       function logofade(){
+         if($(".logo").hasClass("shadow")){
+           $(".logo").removeClass("shadow");
+         } else {
+           $(".logo").addClass("shadow");
+         }
+           x = setTimeout(function(){logofade()}, 500);
+       }
+       logofade();
+      });
+    </script>
+    <!--
+      I seguenti script servono per captare la pressione ed il rilascio dei vari tasti,
+      ed aggiungono e rimuovono la classe 'pressed' responsabile dell'effetto premuto
+      dei tasti della console.
+    -->
+    <script>
+      $(document).keydown(function( event ) {
+        if ( event.which == 38 || event.which == 75 || event.which == 87 ) {
+            $(".button-top").addClass("pressed");
+        }
+      });
+      $(document).keyup(function( event ) {
+        if ( event.which == 38 || event.which == 75 || event.which == 87 ) {
+            $(".button-top").removeClass("pressed");
+        }
+      });
+
+      $(document).keydown(function( event ) {
+        if ( event.which == 40 || event.which == 74 || event.which == 83 ) {
+            $(".button-bottom").addClass("pressed");
+        }
+      });
+      $(document).keyup(function( event ) {
+        if ( event.which == 40 || event.which == 74 || event.which == 83 ) {
+            $(".button-bottom").removeClass("pressed");
+        }
+      });
+
+      $(document).keydown(function( event ) {
+        if ( event.which == 37 || event.which == 65 || event.which == 72 ) {
+            $(".button-left").addClass("pressed");
+        }
+      });
+      $(document).keyup(function( event ) {
+        if ( event.which == 37 || event.which == 65 || event.which == 72 ) {
+            $(".button-left").removeClass("pressed");
+        }
+      });
+
+      $(document).keydown(function( event ) {
+        if ( event.which == 39 || event.which == 68 || event.which == 76 ) {
+            $(".button-right").addClass("pressed");
+        }
+      });
+      $(document).keyup(function( event ) {
+        if ( event.which == 39 || event.which == 68 || event.which == 76 ) {
+            $(".button-right").removeClass("pressed");
+        }
+      });
+    </script>
+  </body>
+</html>
